@@ -111,7 +111,7 @@ void Profile::CalculateShipStats()
 	m_shipHullAmount = 90 + (m_shipHullScaleAmount * m_HULPoints);
 	m_shipLongDMG = 30 + (m_shipLongDMGScaleAmount * m_LDPoints);
 	m_shipShortDMG = 5 + (m_shipShortDMGScaleAmount * m_SDPoints);
-	m_shipEngineSpeed = 10 - (5 * m_EnginePoints);
+	m_shipEngineSpeed = 10 + (5 * m_EnginePoints);
 	m_expectedEnemyAmount = m_currentLevel * m_enemyAmountScale;
 }
 void Profile::AddExp(int exp)
