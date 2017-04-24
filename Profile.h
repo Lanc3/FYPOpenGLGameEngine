@@ -19,7 +19,7 @@ using namespace std;
 class Profile
 {
 public:
-	static Profile * getInstance();
+	static Profile * GetInstance();
 	
 	Profile();
 	~Profile();

@@ -146,8 +146,8 @@ void Game::LoadResources()
 	ResourceManager::getInstance()->AddAssetToQueue(new TextData("Engine", "ult", 20, glm::vec2(805, 320), glm::vec4(0, 150, 245, 255)));
 	ResourceManager::getInstance()->AddAssetToQueue(new TextData("back", "back", 20, glm::vec2(760, 650), glm::vec4(0, 150, 245, 255)));
 	ResourceManager::getInstance()->AddAssetToQueue(new TextData("next", "next", 20, glm::vec2(1020, 650), glm::vec4(0, 150, 245, 255)));
-	ResourceManager::getInstance()->AddAssetToQueue(new TextData("current level : " + to_string(Profile::getInstance()->GetLevel()), "level", 20, glm::vec2(0, 0), glm::vec4(0, 150, 245, 255)));
-	ResourceManager::getInstance()->AddAssetToQueue(new TextData("Power Points: " + to_string(Profile::getInstance()->GetPowerPoints()), "powerPoints", 20, glm::vec2(0, 30), glm::vec4(0, 150, 245, 255)));
+	ResourceManager::getInstance()->AddAssetToQueue(new TextData("current level : " + to_string(Profile::GetInstance()->GetLevel()), "level", 20, glm::vec2(0, 0), glm::vec4(0, 150, 245, 255)));
+	ResourceManager::getInstance()->AddAssetToQueue(new TextData("Power Points: " + to_string(Profile::GetInstance()->GetPowerPoints()), "powerPoints", 20, glm::vec2(0, 30), glm::vec4(0, 150, 245, 255)));
 	ResourceManager::getInstance()->AddAssetToQueue(new TextureLoadingData("Assets\\Images\\button.png ", "bnext", glm::vec2(730, 630)));
 	ResourceManager::getInstance()->AddAssetToQueue(new TextureLoadingData("Assets\\Images\\button.png ", "bback", glm::vec2(990, 630)));
 	//GAME OVER
@@ -195,7 +195,7 @@ void Game::Update(float dt) {
 
 	
 	m_sceneManager->Update(dt);
-	Profile::getInstance()->Update();
+	Profile::GetInstance()->Update();
 }
 
 void Game::Render() {

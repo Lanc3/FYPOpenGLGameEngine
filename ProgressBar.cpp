@@ -35,8 +35,8 @@ void ProgressBar::SetCurrentHullAmount(float amount)
 
 void ProgressBar::Update(float dt)
 {
-	m_shieldPercentageAmount = m_maxShieldAmount / m_currentShieldAmount;
-	m_hullPercentAmount = m_maxHullAmount / m_currentHullAmount;
+	m_shieldPercentageAmount =  m_currentShieldAmount / m_maxShieldAmount;
+	m_hullPercentAmount =  m_currentHullAmount /m_maxHullAmount;
 }
 
 void ProgressBar::Render(Camera * cam, SpriteRenderer * renderer, Scene * s)

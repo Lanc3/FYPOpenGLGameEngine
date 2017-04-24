@@ -21,6 +21,14 @@ void Circle::SetCenter(glm::vec3 position)
 Circle::~Circle()
 {
 }
+bool Circle::Intersets(Circle * circle)
+{
+	if ((glm::distance(m_center, circle->GetCenter()) - circle->GetRadius() - m_radius) <= 0)
+	{
+		return true;
+	}
+	return false;
+}
 
 float Circle::Distance(glm::vec3 a, glm::vec3 b)
 {

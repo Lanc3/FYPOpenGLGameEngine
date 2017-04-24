@@ -30,11 +30,12 @@ Ship::Ship(glm::vec3 startingPosition, string modelName)
 	m_longRangeIndicator = Polygon(nboundPoints, m_position);
 	m_longRangeIndicator.SetColor(glm::vec4(255, 0, 0, 1));
 
-	m_maxHP = Profile::getInstance()->GetShipHullAmount();
-	m_maxShield = Profile::getInstance()->GetShipShieldAmount();
+	m_maxHP = Profile::GetInstance()->GetShipHullAmount();
+	m_maxShield = Profile::GetInstance()->GetShipShieldAmount();
 	m_currentHP = m_maxHP;
 	m_currentShield = m_maxShield;
-	m_acceleration = Profile::getInstance()->GetShipHEngineSpeedAmount();
+	m_acceleration = Profile::GetInstance()->GetShipHEngineSpeedAmount();
+	m_bounds = Circle(m_position, 50);
 }
 
 
@@ -43,7 +44,7 @@ Ship::~Ship()
 }
 float Ship::GetCurrentHp()
 {
-	return m_maxHP;
+	return m_currentHP;
 }
 float Ship::GetCurrentShield()
 {
@@ -66,7 +67,15 @@ void Ship::Update(float dt)
 	m_longRangeIndicator.SetPosition(m_position);
 	m_longRangeIndicator.Update(dt);
 	CalculateLongTargetDirection(dt);
-
+	m_bounds.SetCenter(m_position);
+	if (m_currentHP > 0)
+	{
+		m_isAlive = true;
+	}
+	else
+	{
+		m_isAlive = false;
+	}
 }
 void Ship::CalculateLeftShortTargetDirection(float dt)
 {
@@ -123,7 +132,7 @@ void Ship::CalculateMovement(float dt)
 
 		m_yaw = atan2(-m_direction.z, m_direction.x);
 
-		m_velocity = m_direction * (m_acceleration * dt);
+		m_velocity = m_direction * (m_acceleration * 0.01f);
 		m_position += m_velocity;
 		m_model->setRotation(glm::vec3(0, 1, 0), m_yaw + (PI / 2), 0, 0);
 		m_model->setPosition(m_position + glm::vec3(0, 10, 0));
@@ -132,11 +141,20 @@ void Ship::CalculateMovement(float dt)
 		m_moveLine.SetLineColor(glm::vec4(0, 150, 254, 255));
 	}
 }
-
+void Ship::ToggleMoveLineIndicator()
+{
+	m_toogleMoveLine = !m_toogleMoveLine;
+}
 void Ship::Render(Camera * cam)
 {
 	m_model->Render(cam);
-	m_moveLine.Render(cam);
+	if (m_isAlive)
+	{
+		if (m_toogleMoveLine)
+		{
+			m_moveLine.Render(cam);
+		}
+	}
 	m_bulletFactory->Render(cam);
 	if (m_shortRangeIndicatorRender)
 	{
@@ -183,6 +201,10 @@ void Ship::DamageShip(int amount)
 	if (m_currentHP <= 0)
 	{
 		m_currentShield -= amount;
+		if (m_currentShield < 0)
+		{
+			m_currentShield = 0;
+		}
 	}
 	else
 	{
@@ -198,4 +220,14 @@ void Ship::Kill()
 bool Ship::IsAlive()
 {
 	return m_isAlive;
+}
+
+Circle Ship::GetBounds()
+{
+	return m_bounds;
+}
+
+vector<Bullet*> Ship::GetBulletList()
+{
+	return m_bulletFactory->getBullets();
 }

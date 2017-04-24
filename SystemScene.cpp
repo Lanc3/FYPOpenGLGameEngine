@@ -68,7 +68,7 @@ void SystemScene::Render()
 	RenderText("Universe View ", 450, 680, 0.65f, glm::vec3(0, 155, 254));
 
 
-	if (Profile::getInstance()->GetAchievements("10Kills"))
+	if (Profile::GetInstance()->GetAchievements("10Kills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("10KillsDone"),
 			glm::vec2(1200, 0), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -78,7 +78,7 @@ void SystemScene::Render()
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("10Kills"),
 			glm::vec2(1200, 80), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	if (Profile::getInstance()->GetAchievements("100Kills"))
+	if (Profile::GetInstance()->GetAchievements("100Kills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("100KillsDone"),
 			glm::vec2(1200, 160), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -88,7 +88,7 @@ void SystemScene::Render()
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("100Kills"),
 			glm::vec2(1200, 240), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	if (Profile::getInstance()->GetAchievements("1KKills"))
+	if (Profile::GetInstance()->GetAchievements("1KKills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("1KKillsDone"),
 			glm::vec2(1200, 320), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -98,7 +98,7 @@ void SystemScene::Render()
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("1KKills"),
 			glm::vec2(1200, 400), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	if (Profile::getInstance()->GetAchievements("1MKills"))
+	if (Profile::GetInstance()->GetAchievements("1MKills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("1MKillsDone"),
 			glm::vec2(1200, 480), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));

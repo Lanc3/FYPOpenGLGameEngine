@@ -10,6 +10,7 @@ public:
 	Circle(glm::vec3 position, float radius);
 	void SetCenter(glm::vec3 position);
 	~Circle();
+	bool Intersets(Circle * circle);
 	float Distance(glm::vec3 objectA, glm::vec3 objectB);
 	float GetDistance(Circle * b);
 	bool LineIntersectsCircle(glm::vec3 ahead2, glm::vec3 ahead);

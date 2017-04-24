@@ -30,6 +30,7 @@ public:
 	~FightingScene();
 	void Start();
 	void BindKeys();
+	void ToggleMoveLine();
 	void ToggleShortIndicator();
 	void ToggleLongIndicator();
 	void ShootLeft();

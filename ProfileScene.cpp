@@ -3,14 +3,14 @@ ProfileScene::ProfileScene(SDL_Renderer* m_renderer, ISoundEngine * sound) : Sce
 {
 	GetTextures();
 	sdl_renderer = m_renderer;
-	m_SheildSlider = slider(400, 30, 800, 50, Profile::getInstance()->GetShieldAmount());
-	m_ArmorSlider = slider(400, 30, 800, 110, Profile::getInstance()->GetArmorAmount());
-	m_HullSlider = slider(400, 30, 800, 170, Profile::getInstance()->GetHullAmount());
-	m_ShortDMGSlider = slider(400, 30, 800, 230, Profile::getInstance()->GetShortAmount());
-	m_LongDMGSlider = slider(400, 30, 800, 290, Profile::getInstance()->GetLongAmopunt());
-	m_ULTSlider = slider(400, 30, 800, 350, Profile::getInstance()->GetUltAmount());
+	m_SheildSlider = slider(400, 30, 800, 50, Profile::GetInstance()->GetShieldAmount());
+	m_ArmorSlider = slider(400, 30, 800, 110, Profile::GetInstance()->GetArmorAmount());
+	m_HullSlider = slider(400, 30, 800, 170, Profile::GetInstance()->GetHullAmount());
+	m_ShortDMGSlider = slider(400, 30, 800, 230, Profile::GetInstance()->GetShortAmount());
+	m_LongDMGSlider = slider(400, 30, 800, 290, Profile::GetInstance()->GetLongAmopunt());
+	m_ULTSlider = slider(400, 30, 800, 350, Profile::GetInstance()->GetUltAmount());
 
-	m_powerPointsToSpend = Profile::getInstance()->GetPowerPoints();
+	m_powerPointsToSpend = Profile::GetInstance()->GetPowerPoints();
 
 	m_container = ResourceManager::getInstance()->GetTexture("menuContainer");
 	m_containerRect.w = 450;
@@ -58,14 +58,14 @@ ProfileScene::~ProfileScene()
 
 void ProfileScene::Start()
 {
-	m_SheildSlider = slider(400, 30, 800, 50, Profile::getInstance()->GetShieldAmount());
-	m_ArmorSlider = slider(400, 30, 800, 110, Profile::getInstance()->GetArmorAmount());
-	m_HullSlider = slider(400, 30, 800, 170, Profile::getInstance()->GetHullAmount());
-	m_ShortDMGSlider = slider(400, 30, 800, 230, Profile::getInstance()->GetShortAmount());
-	m_LongDMGSlider = slider(400, 30, 800, 290, Profile::getInstance()->GetLongAmopunt());
-	m_ULTSlider = slider(400, 30, 800, 350, Profile::getInstance()->GetUltAmount());
+	m_SheildSlider = slider(400, 30, 800, 50, Profile::GetInstance()->GetShieldAmount());
+	m_ArmorSlider = slider(400, 30, 800, 110, Profile::GetInstance()->GetArmorAmount());
+	m_HullSlider = slider(400, 30, 800, 170, Profile::GetInstance()->GetHullAmount());
+	m_ShortDMGSlider = slider(400, 30, 800, 230, Profile::GetInstance()->GetShortAmount());
+	m_LongDMGSlider = slider(400, 30, 800, 290, Profile::GetInstance()->GetLongAmopunt());
+	m_ULTSlider = slider(400, 30, 800, 350, Profile::GetInstance()->GetUltAmount());
 
-	m_powerPointsToSpend = Profile::getInstance()->GetPowerPoints();
+	m_powerPointsToSpend = Profile::GetInstance()->GetPowerPoints();
 
 	m_alive = true;
 	m_bgmMenu = m_soundEngine->play2D("Assets\\audio\\music1.wav", GL_TRUE, GL_TRUE);
@@ -113,7 +113,7 @@ void ProfileScene::Left()
 {
 	if (selectedOption == 1)
 	{
-		if (m_powerPointsToSpend < Profile::getInstance()->GetPowerPoints() && m_SheildSlider.GetHighlightedAmount() > 0)
+		if (m_powerPointsToSpend < Profile::GetInstance()->GetPowerPoints() && m_SheildSlider.GetHighlightedAmount() > 0)
 		{
 			m_SheildSlider.Left();
 			m_powerPointsToSpend++;
@@ -121,7 +121,7 @@ void ProfileScene::Left()
 	}
 	else if (selectedOption == 2)
 	{
-		if (m_powerPointsToSpend < Profile::getInstance()->GetPowerPoints() && m_ArmorSlider.GetHighlightedAmount() > 0)
+		if (m_powerPointsToSpend < Profile::GetInstance()->GetPowerPoints() && m_ArmorSlider.GetHighlightedAmount() > 0)
 		{
 			m_ArmorSlider.Left();
 			m_powerPointsToSpend++;
@@ -129,7 +129,7 @@ void ProfileScene::Left()
 	}
 	else if (selectedOption == 3)
 	{
-		if (m_powerPointsToSpend < Profile::getInstance()->GetPowerPoints() && m_HullSlider.GetHighlightedAmount() > 0)
+		if (m_powerPointsToSpend < Profile::GetInstance()->GetPowerPoints() && m_HullSlider.GetHighlightedAmount() > 0)
 		{
 			m_HullSlider.Left();
 			m_powerPointsToSpend++;
@@ -137,7 +137,7 @@ void ProfileScene::Left()
 	}
 	else if (selectedOption == 4)
 	{
-		if (m_powerPointsToSpend < Profile::getInstance()->GetPowerPoints() && m_ShortDMGSlider.GetHighlightedAmount() > 0)
+		if (m_powerPointsToSpend < Profile::GetInstance()->GetPowerPoints() && m_ShortDMGSlider.GetHighlightedAmount() > 0)
 		{
 			m_ShortDMGSlider.Left();
 			m_powerPointsToSpend++;
@@ -145,7 +145,7 @@ void ProfileScene::Left()
 	}
 	else if (selectedOption == 5)
 	{
-		if (m_powerPointsToSpend < Profile::getInstance()->GetPowerPoints() && m_LongDMGSlider.GetHighlightedAmount() > 0)
+		if (m_powerPointsToSpend < Profile::GetInstance()->GetPowerPoints() && m_LongDMGSlider.GetHighlightedAmount() > 0)
 		{
 			m_LongDMGSlider.Left();
 			m_powerPointsToSpend++;
@@ -153,7 +153,7 @@ void ProfileScene::Left()
 	}
 	else if (selectedOption == 6)
 	{
-		if (m_powerPointsToSpend < Profile::getInstance()->GetPowerPoints() && m_ULTSlider.GetHighlightedAmount() > 0)
+		if (m_powerPointsToSpend < Profile::GetInstance()->GetPowerPoints() && m_ULTSlider.GetHighlightedAmount() > 0)
 		{
 			m_ULTSlider.Left();
 			m_powerPointsToSpend++;
@@ -339,46 +339,46 @@ void ProfileScene::SelectKey()
 	}
 	else if (selectedOption == 8)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->Save();
 		m_bgmMenu->stop();
 		this->GoToScene("System");
 	}
 	else if (selectedOption == 1)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->SetShieldAmount(m_SheildSlider.GetTotal());
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->SetShieldAmount(m_SheildSlider.GetTotal());
+		Profile::GetInstance()->Save();
 	}
 	else if (selectedOption == 2)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->SetArmorAmount(m_ArmorSlider.GetTotal());
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->SetArmorAmount(m_ArmorSlider.GetTotal());
+		Profile::GetInstance()->Save();
 	}
 	else if (selectedOption == 3)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->SetHullAmount(m_HullSlider.GetTotal());
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->SetHullAmount(m_HullSlider.GetTotal());
+		Profile::GetInstance()->Save();
 	}
 	else if (selectedOption == 4)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->SetShortAmount(m_ShortDMGSlider.GetTotal());
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->SetShortAmount(m_ShortDMGSlider.GetTotal());
+		Profile::GetInstance()->Save();
 	}
 	else if (selectedOption == 5)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->SetLongAmopunt(m_LongDMGSlider.GetTotal());
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->SetLongAmopunt(m_LongDMGSlider.GetTotal());
+		Profile::GetInstance()->Save();
 	}
 	else if (selectedOption == 6)
 	{
-		Profile::getInstance()->SetPPAmount(m_powerPointsToSpend);
-		Profile::getInstance()->SetEngineSpeedAmount(m_ULTSlider.GetTotal());
-		Profile::getInstance()->Save();
+		Profile::GetInstance()->SetPPAmount(m_powerPointsToSpend);
+		Profile::GetInstance()->SetEngineSpeedAmount(m_ULTSlider.GetTotal());
+		Profile::GetInstance()->Save();
 	}
 }
 
@@ -448,7 +448,7 @@ void ProfileScene::Render()
 	
 	//achievement draws
 
-	if (Profile::getInstance()->GetAchievements("10Kills"))
+	if (Profile::GetInstance()->GetAchievements("10Kills"))
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("10KillsDone"), NULL, &m_tenRect);
 	}
@@ -456,7 +456,7 @@ void ProfileScene::Render()
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("10Kills"), NULL, &m_tenRect);
 	}
-	if (Profile::getInstance()->GetAchievements("100Kills"))
+	if (Profile::GetInstance()->GetAchievements("100Kills"))
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("100KillsDone"), NULL, &m_hundredRect);
 	}
@@ -464,7 +464,7 @@ void ProfileScene::Render()
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("100Kills"), NULL, &m_hundredRect);
 	}
-	if (Profile::getInstance()->GetAchievements("1KKills"))
+	if (Profile::GetInstance()->GetAchievements("1KKills"))
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("1KKillsDone"), NULL, &m_thousandRect);
 	}
@@ -472,7 +472,7 @@ void ProfileScene::Render()
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("1KKills"), NULL, &m_thousandRect);
 	}
-	if (Profile::getInstance()->GetAchievements("1MKills"))
+	if (Profile::GetInstance()->GetAchievements("1MKills"))
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("1MKillsDone"), NULL, &m_millionRect);
 	}
@@ -480,7 +480,7 @@ void ProfileScene::Render()
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("1MKills"), NULL, &m_millionRect);
 	}
-	if (Profile::getInstance()->GetAchievements("10Kills"))
+	if (Profile::GetInstance()->GetAchievements("10Kills"))
 	{
 		SDL_RenderCopy(sdl_renderer, ResourceManager::getInstance()->GetTexture("10KillsDone"), NULL, &m_levelRect);
 	}

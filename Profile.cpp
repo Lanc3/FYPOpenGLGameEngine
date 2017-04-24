@@ -2,7 +2,7 @@
 
 Profile* Profile::mInstance = nullptr;
 
-Profile* Profile::getInstance()
+Profile* Profile::GetInstance()
 {
 	if (mInstance == nullptr)
 	{

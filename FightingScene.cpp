@@ -17,7 +17,7 @@ FightingScene::FightingScene(SDL_Window* window, ISoundEngine * sound) : Scene("
 	m_Weapon = Weapon(WeaponFactory::getInstance()->getNewWeapon(WeaponType::SHORT));
 	m_Weapon.Update(glm::vec3(0, 0, 0), 90, 0);
 	m_player = Ship(glm::vec3(0,0,0),"playerShip");
-	m_hpShieldBar = ProgressBar("name", glm::vec2(465, 660), Profile::getInstance()->GetShipShieldAmount(), Profile::getInstance()->GetShipHullAmount());
+	m_hpShieldBar = ProgressBar("name", glm::vec2(465, 660), Profile::GetInstance()->GetShipShieldAmount(), Profile::GetInstance()->GetShipHullAmount());
 	m_enemyManager = EnemyManager();
 }
 
@@ -28,8 +28,7 @@ FightingScene::~FightingScene()
 }
 void FightingScene::Start()
 {
-	SetUpEntitys();
-	SetUpSystems();
+	
 	if (m_inputManager->IsControllerConnected())
 	{
 
@@ -37,6 +36,20 @@ void FightingScene::Start()
 	}
 	bgSound = m_soundEngine->play2D("Assets\\audio\\fighting.wav", GL_TRUE, GL_TRUE);
 	bgSound->setVolume(0.3);
+
+	//m_pointer = new Entity();
+	pointerPosition = glm::vec3(0, 0, 0);
+	m_bulletFactory = new BulletFactory();
+	WeaponFactory::getInstance()->createWeapons(m_bulletFactory);
+
+	m_Weapon = Weapon(WeaponFactory::getInstance()->getNewWeapon(WeaponType::SHORT));
+	m_Weapon.Update(glm::vec3(0, 0, 0), 90, 0);
+	m_player = Ship(glm::vec3(0, 0, 0), "playerShip");
+	m_hpShieldBar = ProgressBar("name", glm::vec2(465, 660), Profile::GetInstance()->GetShipShieldAmount(), Profile::GetInstance()->GetShipHullAmount());
+	m_enemyManager = EnemyManager();
+
+	SetUpEntitys();
+	SetUpSystems();                      
 }
 void FightingScene::BindKeys()
 {
@@ -52,6 +65,17 @@ void FightingScene::BindKeys()
 	m_inputManager->AddKey(Event::BUTTON_RIGHTSHOULDER, longIdicator, this);
 	Command* shootLong = new SpaceCommand(std::bind(&FightingScene::ShootLong, this), Press);
 	m_inputManager->AddKey(Event::BUTTON_Y, shootLong, this);
+	Command* moveLine = new SpaceCommand(std::bind(&FightingScene::ToggleMoveLine, this), Press);
+	m_inputManager->AddKey(Event::BUTTON_BACK, moveLine, this);
+}
+
+void FightingScene::ToggleMoveLine()
+{
+	m_player.ToggleMoveLineIndicator();
+	for (const auto & itr : m_enemyManager.GetEnemyList())
+	{
+		itr->ToggleMoveLineIndicator();
+	}
 }
 void FightingScene::ToggleShortIndicator()
 {
@@ -99,7 +123,7 @@ void FightingScene::Render()
 	RenderText("Fight !!!", 450, 680, 0.65f, glm::vec3(0, 155, 254));
 
 
-	if (Profile::getInstance()->GetAchievements("10Kills"))
+	if (Profile::GetInstance()->GetAchievements("10Kills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("10KillsDone"),
 			glm::vec2(1200, 0), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -109,7 +133,7 @@ void FightingScene::Render()
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("10Kills"),
 			glm::vec2(1200, 0), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	if (Profile::getInstance()->GetAchievements("100Kills"))
+	if (Profile::GetInstance()->GetAchievements("100Kills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("100KillsDone"),
 			glm::vec2(1200, 80), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -119,7 +143,7 @@ void FightingScene::Render()
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("100Kills"),
 			glm::vec2(1200, 80), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	if (Profile::getInstance()->GetAchievements("1KKills"))
+	if (Profile::GetInstance()->GetAchievements("1KKills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("1KKillsDone"),
 			glm::vec2(1200, 160), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -129,7 +153,7 @@ void FightingScene::Render()
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("1KKills"),
 			glm::vec2(1200, 160), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
 	}
-	if (Profile::getInstance()->GetAchievements("1MKills"))
+	if (Profile::GetInstance()->GetAchievements("1MKills"))
 	{
 		m_spriteRenderer->DrawSprite(ResourceManager::getInstance()->GetSprite("1MKillsDone"),
 			glm::vec2(1200, 240), glm::vec2(60, 60), 0, glm::vec3(1.0f, 1.0f, 1.0f));
@@ -174,10 +198,35 @@ void FightingScene::Update(float dt)
 			{
 				itr->SetTargetLong(m_player.GetPosition());
 				//if(itr->)
+				for (const auto & itrs : itr->GetBulletList())
+				{
+					if (m_player.GetBounds().Intersets(&itrs->getBounds())) 
+					{
+						m_player.DamageShip(10);
+						itrs->kill();
+					}
+				}
+			}
+
+			for (const auto & itrs : m_player.GetBulletList())
+			{
+				if (itr->GetBounds().Intersets(&itrs->getBounds()))
+				{
+					itr->DamageShip(itrs->getDamage());
+					itrs->kill();
+				}
 			}
 		}
 	}
 	bgSound->setIsPaused(false);
+	if (!m_player.IsAlive())
+	{
+		this->GoToScene("Profile");
+	}
+	if (m_enemyManager.GetState())
+	{
+		this->GoToScene("Profile");
+	}
 }
 
 void FightingScene::HandleInput(float dt)

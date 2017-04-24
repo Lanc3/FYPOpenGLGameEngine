@@ -21,8 +21,8 @@ Node::Node(int key, glm::vec3 startingPosition, Scene *se)
 	model = new Model("galaxy", m_position, glm::vec3(8, 8, 8), 0);
 	model->setPosition(m_position);
 	m_currentBounds = new Circle(m_position, 20);
-	m_level = Profile::getInstance()->GetLevel();
-	m_enemyCount = Profile::getInstance()->GetEnemyCount();
+	m_level = Profile::GetInstance()->GetLevel();
+	m_enemyCount = Profile::GetInstance()->GetEnemyCount();
 	m_inputManager = InputManager::GetInstance();
 	m_inputManager->ProcessInput();
 	Command* select = new SpaceCommand(std::bind(&Node::SelectKey, this), Press);

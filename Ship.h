@@ -16,6 +16,7 @@
 #include "Polygon.h"
 #include "Profile.h"
 #include "Bullet.h"
+#include "Circle.h"
 class Ship
 {
 public:
@@ -30,6 +31,7 @@ public:
 	void CalculateRightShortTargetDirection(float dt);
 	void CalculateLongTargetDirection(float dt);
 	void CalculateMovement(float dt);
+	void ToggleMoveLineIndicator();
 	void Render(Camera * cam);
 	void SetMovePosition(glm::vec3 move);
 	void SetTargetShortLeft(glm::vec3 target);
@@ -40,7 +42,8 @@ public:
 	void DamageShip(int amount);
 	void Kill();
 	bool IsAlive();
-	
+	Circle GetBounds();
+	vector<Bullet *> GetBulletList();
 private:
 	glm::vec3 m_position,m_movePosition , m_shortRangeTargetLeft, m_shortRangeTargetRight, m_longRangeTarget, m_ultTarget;
 	bool m_shortRangeLeftLock = false, m_shortRangeRightLock = false, m_longRangeLock = false, m_shortRangeIndicatorRender = false, m_longRangeIndicatorRender = false;
@@ -51,12 +54,14 @@ private:
 	glm::vec3 m_direction = glm::vec3(0.0f, 0.0f, -1.0f);
 	glm::vec3 m_steering;
 	float m_yaw;
-	float m_acceleration = 15;
+	float m_acceleration = 280;
 	Line m_moveLine;
 	Weapon * m_leftShortWeapon, * m_rightShortWeapon, * m_longWeapon;
 	BulletFactory * m_bulletFactory;
 	Polygon m_shortRangeIndicator, m_longRangeIndicator;
 	float m_currentHP, m_currentShield, m_maxHP, m_maxShield;
 	bool m_isAlive = true;
+	Circle m_bounds;
+	bool m_toogleMoveLine = true;
 };
 

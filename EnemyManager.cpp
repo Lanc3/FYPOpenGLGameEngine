@@ -4,10 +4,19 @@
 
 EnemyManager::EnemyManager()
 {
-	enemy = new Ship(glm::vec3(500, 0, 600), "enemyShip");
-	m_listOfEnemies.push_back(enemy);
-	m_enemyLevel = Profile::getInstance()->GetLevel();
+	m_enemyLevel = Profile::GetInstance()->GetLevel();
 	m_enemyXPValue = m_enemyLevel * m_enemyScaleValue;
+	m_amountToSpawn = Profile::GetInstance()->GetEnemyCount();
+
+	
+	for (int i = 0; i != m_amountToSpawn; i++)
+	{
+		float r = rand() % (4000 - 600) + 600;
+		float a = rand() % (360 - 0);
+		enemy = new Ship(glm::vec3(r *cos(glm::radians(a)), 0, r *sin(glm::radians(a))), "enemyShip");
+		m_listOfEnemies.push_back(enemy);
+	}
+		
 }
 
 
@@ -25,11 +34,20 @@ void EnemyManager::Update(float dt)
 		}
 		else
 		{
+			Profile::GetInstance()->AddExp(40);
 			delete m_listOfEnemies[i];
 			m_listOfEnemies[i] = nullptr;
 			m_listOfEnemies.erase(m_listOfEnemies.begin() + i);
 		}
 	}
+	if (m_listOfEnemies.size() <= 0)
+	{
+		m_alldead = true;
+	}
+}
+bool EnemyManager::GetState()
+{
+	return m_alldead;
 }
 void EnemyManager::SetTarget(glm::vec3 target)
 {
