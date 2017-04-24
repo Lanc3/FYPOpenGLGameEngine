@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MenuScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="SAT\Collider.cpp">
+      <Filter>SAT</Filter>
+    </ClCompile>
+    <ClCompile Include="SAT\CollisionManager.cpp">
+      <Filter>SAT</Filter>
+    </ClCompile>
+    <ClCompile Include="SAT\Polygon.cpp">
+      <Filter>SAT</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Textures.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Quad.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SkyBox.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CameraSystem.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ControllerSystem.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderSystem.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OptionsScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="PolygonBoundsSystem.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TransformSystem.cpp">
+      <Filter>ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FLInputManager.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Helper\AssetLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletFactory.cpp">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponFactory.cpp">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="sliderCell.cpp">
+      <Filter>Scenes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="slider.cpp">
+      <Filter>Scenes\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="FightingScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Profile.cpp">
+      <Filter>Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="Ship.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\MenuScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Shader.h">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Model.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Mesh.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Camera.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="SAT\Collider.h">
+      <Filter>SAT</Filter>
+    </ClInclude>
+    <ClInclude Include="SAT\CollisionManager.h">
+      <Filter>SAT</Filter>
+    </ClInclude>
+    <ClInclude Include="SAT\Polygon.h">
+      <Filter>SAT</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Textures.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Quad.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\SkyBox.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SkyBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>Source Files\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameOverScene.cpp">
+      <Filter>Source Files\SceneManager\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameScene.cpp">
+      <Filter>Source Files\SceneManager\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MenuScene.cpp">
+      <Filter>Source Files\SceneManager\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>Source Files\SceneManager\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model.cpp">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Textures.cpp">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClCompile>
+    <ClInclude Include="header\CameraSystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Component.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Components.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ControllerSystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Entity.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\OptionsScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Game.h" />
+    <ClInclude Include="header\RenderSystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="PolygonBoundsSystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\TransformSystem.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="header\System.h">
+      <Filter>ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\FLInputManager.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ResourceManager.h">
+      <Filter>Helper\AssetLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Asset.h">
+      <Filter>Helper\AssetLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="ProfileScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletFactory.h">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponFactory.h">
+      <Filter>GameObjects\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="sliderCell.h">
+      <Filter>Scenes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="slider.h">
+      <Filter>Scenes\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Scene.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="header\SceneManager.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="FightingScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Profile.h">
+      <Filter>Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\Camera.h" />
+    <ClInclude Include="header\Game.h" />
+    <ClInclude Include="header\GameOverScene.h" />
+    <ClInclude Include="header\GameScene.h" />
+    <ClInclude Include="header\MenuScene.h" />
+    <ClInclude Include="header\Mesh.h" />
+    <ClInclude Include="header\Model.h" />
+    <ClInclude Include="header\ResourceManager.h" />
+    <ClInclude Include="header\Scene.h" />
+    <ClInclude Include="header\SceneManager.h" />
+    <ClInclude Include="header\SkyBox.h" />
+    <ClInclude Include="header\Shader.h" />
+    <ClInclude Include="header\Textures.h" />
+    <ClInclude Include="header\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\SkyBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="header\SceneManager.h">
+      <Filter>Header Files\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Scene.h">
+      <Filter>Header Files\SceneManager\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="header\GameOverScene.h">
+      <Filter>Header Files\SceneManager\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="header\GameScene.h">
+      <Filter>Header Files\SceneManager\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="header\MenuScene.h">
+      <Filter>Header Files\SceneManager\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="header\ResourceManager.h">
+      <Filter>Header Files\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Mesh.h">
+      <Filter>Header Files\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Model.h">
+      <Filter>Header Files\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="header\Textures.h">
+      <Filter>Header Files\ResourceManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{09fdf9d3-c12d-485a-91ee-6af4dc3cae72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{29cdbb2c-3df8-4a08-a324-2c321e3f273b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper">
+      <UniqueIdentifier>{63d9e39f-c512-4b59-85c8-a4d533f1767c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SAT">
+      <UniqueIdentifier>{bedb3a39-f972-44de-9905-730abcc010ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{01ceb30d-8926-4e1f-a2fa-b003093697e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS">
+      <UniqueIdentifier>{07e23cf6-cea4-48ad-b58f-8ae4dc7de577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper\AssetLoader">
+      <UniqueIdentifier>{2d7d3a1f-f18f-4722-ac97-e439ca2eadce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profile">
+      <UniqueIdentifier>{ede0be55-38fa-4204-8c79-0148cf119983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Weapons">
+      <UniqueIdentifier>{0c5a9655-9e37-4706-8c87-bd0504976e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\UI">
+      <UniqueIdentifier>{aa6d0bdc-2a69-48db-b6f8-d9062c0dad01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\basic.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\basic.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\lampShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\lampShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\lightShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\lightShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\modelShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\modelShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\skyBoxShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\skyBoxShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\texture.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\texture.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\textureSun.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\textureSun.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sprite.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\sprite.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\textShader.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Shaders\textShader.vs">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
