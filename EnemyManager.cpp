@@ -35,6 +35,7 @@ void EnemyManager::Update(float dt)
 		else
 		{
 			Profile::GetInstance()->AddExp(40);
+			Profile::GetInstance()->AddKill();
 			delete m_listOfEnemies[i];
 			m_listOfEnemies[i] = nullptr;
 			m_listOfEnemies.erase(m_listOfEnemies.begin() + i);

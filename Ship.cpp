@@ -132,7 +132,7 @@ void Ship::CalculateMovement(float dt)
 
 		m_yaw = atan2(-m_direction.z, m_direction.x);
 
-		m_velocity = m_direction * (m_acceleration * 0.01f);
+		m_velocity = m_direction * (m_acceleration * dt);
 		m_position += m_velocity;
 		m_model->setRotation(glm::vec3(0, 1, 0), m_yaw + (PI / 2), 0, 0);
 		m_model->setPosition(m_position + glm::vec3(0, 10, 0));

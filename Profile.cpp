@@ -87,6 +87,8 @@ int Profile::GetSortDMG()
 
 Profile::~Profile()
 {
+	delete mInstance;
+	mInstance = nullptr;
 }
 
 void Profile::Update()
